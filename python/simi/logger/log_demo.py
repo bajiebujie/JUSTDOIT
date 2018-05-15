@@ -19,7 +19,7 @@ def test1():
     fileHandler = TimedRotatingFileHandler(log_file_prefix + "_app.log", when='midnight', interval=1, backupCount=3)
     fileHandler.setFormatter(formatter)
 
-    logger = logging.root
+    # logger = logging.root
     logger = logging.getLogger(log_file_prefix)
     logger.addHandler(fileHandler)
     logger.setLevel(logging.DEBUG)
