@@ -4,6 +4,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append('..')
+sys.path.append('../..')
 
 from scrapy import Selector
 from selenium import webdriver
@@ -12,7 +13,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-from logger.my_logger import MyLogger
+from simi.logger.my_logger import MyLogger
 
 driver = webdriver.PhantomJS()
 # driver.implicitly_wait(30)

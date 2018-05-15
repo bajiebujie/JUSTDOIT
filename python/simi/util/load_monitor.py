@@ -1,8 +1,6 @@
 #! encoding: utf8
 import os
-import sys
-reload(sys)
-sys.path.append('..')
+
 from simi.util.misc import get_host_ip
 
 
@@ -73,8 +71,3 @@ class LoadMonitor(object):
             except Exception as ex:
                 print str(ex)
                 break
-
-
-if __name__ == '__main__':
-    load_monitor = LoadMonitor()
-    load_monitor.start()

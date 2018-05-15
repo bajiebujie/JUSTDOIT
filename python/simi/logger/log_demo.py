@@ -6,7 +6,7 @@ from logging.handlers import TimedRotatingFileHandler
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append('..')
-from logger.my_logger import MyLogger
+from my_logger import MyLogger
 from stream_logger import StreamLogger
 
 
