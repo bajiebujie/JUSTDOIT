@@ -1,4 +1,7 @@
 #! encoding: utf8
+import commands
+import os
+import subprocess
 import sys
 
 reload(sys)
@@ -30,6 +33,22 @@ class Test(object):
         self.test_get_host_ip()
         self.test_load_monitor()
         self.test_my_logger()
+
+    def test_cmd(self):
+        cmd = 'ls'
+        ret = os.system(cmd)
+        print ret
+        output = os.popen(cmd)
+        print output
+        print output.read()
+        status, output = commands.getstatusoutput(cmd)
+        print status, output
+        output = subprocess.check_output(cmd, shell=True)
+        print output
+        print '----- final -----'
+        p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p.wait()
+        print p.returncode, p.stdout.read(), p.stderr.read()
 
 
 if __name__ == '__main__':
