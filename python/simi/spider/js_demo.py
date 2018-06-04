@@ -1,6 +1,8 @@
 #! encoding:utf8
 import sys
 
+import time
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append('..')
@@ -32,3 +34,6 @@ print s.xpath("//div[@class='resClass']/div/span/article/a/@href").extract()
 my_logger = MyLogger(__file__[:-3])
 my_logger.debug('debug sth')
 print 'stdout sth'
+
+# screenshot
+driver.get_screenshot_as_file('%s.png' % time.strftime("%y%m%d_%H%M%S"))
