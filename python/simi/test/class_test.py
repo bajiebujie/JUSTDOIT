@@ -39,14 +39,23 @@ class Student(object):
         raise AttributeError('Can not set attribute <age>, should set <birth>')
 
     def describe(self):
-        print 'name=%s, birth=%s, age=%s' % (self.name, self.birth, self.age)
+        print self.__str__()
+
+    def __str__(self):
+        return 'name=%s, birth=%s, age=%s' % (self.name, self.birth, self.age)
+
+    def __repr__(self):
+        return self.__str__()
 
 
 if __name__ == '__main__':
     student = Student()
-    student.describe()
+    # student.describe()
+    print student
     student.name = 'hehe'
     student.birth = '1985.12.12'
     student.describe()
     # student.birth = '85.12.12'
-    student.age = 10
+    # student.age = 10
+    print student
+    print `student`

@@ -23,11 +23,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 class SunriseSpider(object):
     def __init__(self):
+        self._logger.debug('__init__')
         self._sunrise_dict = {}
         self._logger = MyLogger(__file__[:-3])
-        self._logger.debug('init')
 
     def crawl_sunrise(self):
+        self._logger.debug('crawl_sunrise')
         driver = webdriver.PhantomJS()
         driver.get("https://richurimo.51240.com/beijing__richurimo/")
         WebDriverWait(driver, 10, 1, WebDriverException(msg='page not load complete')).until(
@@ -49,11 +50,13 @@ class SunriseSpider(object):
             # print 'today=%s, sunrise=%s' % (today, sunrise_dict[today])
 
     def send_wx(self, watch):
+        self._logger.debug('send_wx')
         url = 'http://sc.ftqq.com/SCU7567T2d65fc431182df5c782b2dda07fff35a58f4112752201.send?text=sunrise&desp=%s' % watch
         self._logger.debug(url)
         requests.get(url)
 
     def start(self):
+        self._logger.debug('start')
         self.crawl_sunrise()
         while True:
             try:
