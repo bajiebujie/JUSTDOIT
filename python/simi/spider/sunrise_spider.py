@@ -23,9 +23,9 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 class SunriseSpider(object):
     def __init__(self):
-        self._logger.debug('__init__')
         self._sunrise_dict = {}
         self._logger = MyLogger(__file__[:-3])
+        self._logger.debug('__init__')
 
     def crawl_sunrise(self):
         self._logger.debug('crawl_sunrise')
