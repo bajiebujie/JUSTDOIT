@@ -52,6 +52,7 @@ class Test(object):
         print '----- final -----'
         p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         p.wait()
+        print p.pid
         print p.returncode, p.stdout.read(), p.stderr.read()
 
     def test_iter(self):
